@@ -1,0 +1,11 @@
+sudo: Reuired
+language: generic 
+
+services: 
+  - docker
+
+before_install:
+  - docker build -t subu/docker-learning -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true subu/docker-learning npm run test
